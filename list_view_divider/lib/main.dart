@@ -41,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Column(
         children: [
           Expanded(
-            child: ListView.builder(
+            child: ListView.separated(
               itemCount: 100,
               itemBuilder: (BuildContext context, int index) {
                 return Column(
@@ -49,9 +49,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     ListTile(
                       title: Text(index.toString()),
                     ),
-                    const Divider(),
                   ],
                 );
+              },
+              separatorBuilder: (BuildContext context, int index) {
+                return const Divider();
               },
             ),
           ),
